@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeaceChain - Blockchain pour la Paix</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --accent: #FF9800;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --peace-blue: #87CEEB;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%234CAF50" stroke-width="2"/><path d="M30 50 L45 65 L70 35" fill="none" stroke="%234CAF50" stroke-width="3"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--peace-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .peace-symbol {
+            font-size: 4rem;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="peace-symbol">🕊️</div>
+            <h1>PeaceChain</h1>
+            <p class="subtitle">La blockchain décentralisée contre la guerre et pour la paix mondiale</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Une révolution pacifique commence ici</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                PeaceChain est une blockchain ouverte, décentralisée et collaborative où chacun peut créer, 
+                partager et construire un avenir de paix. Rejoignez le mouvement mondial pour transformer 
+                les conflits en opportunités de collaboration.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#participate" class="cta-button">🚀 Commencer maintenant</a>
+                <a href="#vision" class="cta-button" style="background: transparent; border: 2px solid white;">✨ Notre vision</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="vision" class="card">
+            <h2>🌍 Notre Vision</h2>
+            <p>
+                Dans un monde marqué par les conflits, PeaceChain offre une alternative radicale : 
+                une plateforme où la technologie blockchain sert la paix, la collaboration et l'innovation positive.
+                Chaque bloc miné, chaque transaction validée, chaque application créée contribue à construire 
+                un écosystème résilient contre la violence et la division.
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div>Possibilités de création</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div>Décentralisé</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">0</div>
+                    <div>Frais de guerre</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-grid">
+            <div class="feature-card">
+                <h3>🛠️ Créez Tout</h3>
+                <p>Applications, contrats intelligents, œuvres d'art, initiatives de paix, systèmes de vote, 
+                réseaux sociaux alternatifs... La limite est votre imagination.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🤝 Collaboration Mondiale</h3>
+                <p>Rejoignez des milliers de contributeurs du monde entier travaillant ensemble pour des 
+                projets qui transcendent les frontières et les conflits.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Sécurité & Transparence</h3>
+                <p>Technologie blockchain immuable garantissant l'intégrité des données et la confiance 
+                entre tous les participants.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧠 IA au Service de la Paix</h3>
+                <p>Intégration de Mistral AI pour analyser les conflits, proposer des solutions, traduire 
+                automatiquement et faciliter la compréhension mutuelle.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📱 Accessible à Tous</h3>
+                <p>Interface simple, documentation complète et outils pour débutants comme experts.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌱 Écologique</h3>
+                <p>Consensus optimisé pour minimiser l'impact environnemental tout en maximisant l'efficacité.</p>
+            </div>
+        </section>
+
+        <section id="participate" class="card">
+            <h2>🚀 Comment Participer ?</h2>
+            <p style="margin-bottom: 2rem;">
+                Rejoindre PeaceChain est simple et gratuit. Suivez ces étapes pour devenir acteur du changement :
+            </p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Téléchargez le nœud</h3>
+                    <p>Clonez le dépôt GitHub ou téléchargez l'archive ZIP. Installez PHP 7.4+ et les dépendances nécessaires.</p>
+                    <code>git clone https://github.com/votre-compte/peacechain.git</code>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Lancez votre nœud</h3>
+                    <p>Configurez votre nœud pour rejoindre le réseau décentralisé. Votre ordinateur devient un gardien de la paix numérique.</p>
+                    <code>php node.php --start</code>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Créez votre première application</h3>
+                    <p>Utilisez nos API et SDK pour développer des applications innovantes sur PeaceChain. Documentations et exemples disponibles.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Contribuez à la communauté</h3>
+                    <p>Partagez vos créations, aidez les nouveaux venus, participez aux décisions via notre système de gouvernance décentralisé.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Propagez la paix</h3>
+                    <p>Organisez des événements, créez du contenu éducatif, inspirez d'autres personnes à rejoindre le mouvement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>💡 Que Peut-On Créer Sur PeaceChain ?</h2>
+            <div class="feature-grid">
+                <div>
+                    <h4>🗳️ Systèmes de Vote Démocratique</h4>
+                    <p>Plateformes de décision collective transparentes et incorruptibles.</p>
+                </div>
+                <div>
+                    <h4>🎨 Marchés d'Art Pacifiques</h4>
+                    <p>NFTs et œuvres d'art promouvant la paix et la compréhension interculturelle.</p>
+                </div>
+                <div>
+                    <h4>📚 Bibliothèques Décentralisées</h4>
+                    <p>Accès libre au savoir, livres éducatifs sur la résolution de conflits.</p>
+                </div>
+                <div>
+                    <h4>🤖 Assistants IA Multilingues</h4>
+                    <p>Traduction automatique et médiation culturelle powered by Mistral AI.</p>
+                </div>
+                <div>
+                    <h4>💰 Micro-financement de Projets de Paix</h4>
+                    <p>Crowdfunding transparent pour initiatives locales et globales.</p>
+                </div>
+                <div>
+                    <h4>🌐 Réseaux Sociaux Alternatifs</h4>
+                    <p>Espaces de dialogue constructif loin de la polarisation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white;">🧠 Intelligence Artificielle Intégrée</h2>
+            <p>
+                PeaceChain intègre <span class="highlight" style="background: rgba(255,255,255,0.2);">Mistral AI</span> avec une capacité de 
+                <span class="highlight" style="background: rgba(255,255,255,0.2);">1 milliard de tokens</span> pour :
+            </p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>Analyser les discours de haine et proposer des reformulations positives</li>
+                <li>Traduire instantanément entre 100+ langues pour briser les barrières</li>
+                <li>Générer automatiquement de la documentation et des tutoriels</li>
+                <li>Détecter les patterns de manipulation et désinformation</li>
+                <li>Assister les développeurs dans la création de smart contracts</li>
+                <li>Créer des résumés intelligents de propositions complexes</li>
+            </ul>
+            <p><strong>Votre contribution alimente l'IA pour qu'elle apprenne à mieux servir la paix.</strong></p>
+        </section>
+
+        <section class="card">
+            <h2>📖 Ressources & Documentation</h2>
+            <div class="feature-grid">
+                <div>
+                    <h4>📘 Guide du Débutant</h4>
+                    <p>Comprendre la blockchain, installer votre nœud, premières transactions.</p>
+                </div>
+                <div>
+                    <h4>👨‍💻 Documentation API</h4>
+                    <p>Référence complète des endpoints, exemples de code, SDK disponibles.</p>
+                </div>
+                <div>
+                    <h4>🎥 Tutoriels Vidéo</h4>
+                    <p>Séries de vidéos pas-à-pas pour maîtriser PeaceChain.</p>
+                </div>
+                <div>
+                    <h4>💬 Forum Communautaire</h4>
+                    <p>Échangez avec d'autres membres, posez vos questions, partagez vos idées.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin: 3rem 0;">
+            <h2>Prêt à Rejoindre le Mouvement ?</h2>
+            <p style="margin: 1rem 0 2rem; font-size: 1.1rem;">
+                Des milliers de personnes ont déjà choisi la paix. Soyez parmi les pionniers de cette révolution.
+            </p>
+            <a href="#" class="cta-button">📥 Télécharger PeaceChain Maintenant</a>
+            <a href="#" class="cta-button" style="background: white; color: var(--primary);">💬 Rejoindre le Discord</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="peace-symbol" style="font-size: 2rem;">🕊️</div>
+            <p><strong>PeaceChain</strong> - Construire la paix, un bloc à la fois.</p>
+            <p style="opacity: 0.8; margin-top: 1rem;">
+                Projet open-source sous licence MIT • Propulsé par la communauté • Aucune arme, que des idées
+            </p>
+            <div style="margin-top: 1.5rem;">
+                <a href="#" style="color: white; margin: 0 1rem; text-decoration: none;">GitHub</a>
+                <a href="#" style="color: white; margin: 0 1rem; text-decoration: none;">Twitter</a>
+                <a href="#" style="color: white; margin: 0 1rem; text-decoration: none;">Discord</a>
+                <a href="#" style="color: white; margin: 0 1rem; text-decoration: none;">Documentation</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.6; font-size: 0.9rem;">
+                © 2024 PeaceChain Foundation. Ensemble pour un monde sans guerre.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
